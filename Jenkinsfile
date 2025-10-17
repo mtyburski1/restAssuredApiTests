@@ -27,12 +27,13 @@ pipeline {
             }
         }
 
-        stage('Publish Allure Report') {
+        stage('Publish Allure Report TEEST') {
             steps {
                 // Generowanie i publikacja raportu Allure
                 allure([
                     includeProperties: false,
                     jdk: '',
+                    commandline: 'Allure',
                     results: [[path: 'target/allure-results']]
                 ])
             }
