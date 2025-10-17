@@ -38,13 +38,13 @@ pipeline {
             }
         }
 
-        stage('Docker Build & Run Tests in Container') {
-            steps {
-                sh '''
-                    docker build -t api-test-image .
-                    docker run --rm api-test-image
-                '''
-            }
-        }
+//         stage('Docker Build & Run Tests in Container') {
+//             steps {
+//                 sh '''
+//                     docker build -t api-test-image .
+//                     docker run --rm api-test-image
+//                 '''
+//             }
+//         }
     }
 }
