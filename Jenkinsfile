@@ -27,7 +27,7 @@ pipeline {
             }
         }
 
-        stage('Publish Allure Report') {
+        stage('Publish Allure Report TEEST') {
             steps {
                 // Generowanie i publikacja raportu Allure
                 allure([
