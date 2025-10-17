@@ -20,9 +20,21 @@ pipeline {
             }
         }
 
-        stage('Publish Results') {
+        stage('Publish TestNG Results') {
             steps {
+                // Publikacja surowych raportów TestNG w Jenkinsie
                 junit 'target/surefire-reports/*.xml'
+            }
+        }
+
+        stage('Publish Allure Report') {
+            steps {
+                // Generowanie i publikacja raportu Allure
+                allure([
+                    includeProperties: false,
+                    jdk: '',
+                    results: [[path: 'target/allure-results']]
+                ])
             }
         }
 

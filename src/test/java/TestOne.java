@@ -1,4 +1,8 @@
+import clients.PostClient;
 import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import models.Post;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -10,6 +14,7 @@ public class TestOne {
 
     private static final String BASE_URL = "https://reqres.in/api";
     private static final String API_KEY = "reqres-free-v1";
+    private final PostClient client = new PostClient();
 
     @BeforeClass
     public void setup() {
@@ -26,6 +31,14 @@ public class TestOne {
                 .statusCode(200)
                 .body("data.id", equalTo(2))
                 .body("data.email", containsString("@"));
+
+        Response response = client.getPostById(1);
+        Assert.assertEquals(response.statusCode(), 200);
+
+        Post postById1 = client.getPostById1(1);
+        int id = postById1.getId();
+        Assert.assertEquals(id, 1);
+        System.out.println();
     }
 
     @Test
