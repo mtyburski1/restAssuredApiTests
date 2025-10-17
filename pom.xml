@@ -33,18 +33,20 @@
             <scope>compile</scope>
         </dependency>
         <!-- Allure integration with TestNG -->
+        <!-- Allure TestNG integration -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
             <version>2.24.0</version>
-            <scope>test</scope>
         </dependency>
+
+        <!-- Allure REST Assured integration -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-rest-assured</artifactId>
-            <version>2.30.0</version>
-            <scope>test</scope>
+            <version>2.24.0</version>
         </dependency>
+
     </dependencies>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
